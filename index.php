@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <HTML>
   <header>
-    <link rel="stylesheet" type="text/css" href="views/index.css">
+    <link rel="stylesheet" type="text/css" href="style/index.css">
     <meta charset="UTF-8">
     <title>CAMAGRU</title>
   </header>
@@ -22,20 +22,23 @@ session_start();
           <input id="mail" name="email" placeholder="email" type="mail">
           <label>Password: </label>
           <input id="password" name="password" placeholder="password" type="password">
-          <input name="submit" type="submit" value="login">
+          <input name="submit" type="submit" value=" LOGIN ">
           <a href="signup.php">Create account</a>
           <a href="forgot.php">Forget password ?</a>
           <span>
-            <?php
-				if ($_SESSION['error']) {
-					echo $_SESSION['error'];
-				}
-              $_SESSION['error'] = null;
-            ?>
+          <?php
+            if ($_SESSION['error']) {
+              echo $_SESSION['error'];
+            }
+            $_SESSION['error'] = null;
+          ?>
           </span>
         </form>
         <?php } ?>
       </div>
     </div>
+    <?php 
+      print_r($_SESSION);
+    ?>
   </body>
 </HTML>

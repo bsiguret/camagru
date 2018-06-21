@@ -1,33 +1,51 @@
 body {
   margin: 0;
+  background-color: white;
   font-family: monospace;
 }
 #header {
   width: 100%;
-  height: 60px;
-  background-color: bisque;
+  height: 5vw;
+  background-color: rgb(0, 0, 0);
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   margin-bottom: 15px;
 }
 .button {
   float: right;
-  height: 56px;
-  width: 100px;
-  line-height: 56px;
-  border: 2px solid bisque;
+  height: 4vw;
+  width: 8vw;
+  line-height: 4.5vw;
+  border: 2px solid rgb(0, 0, 0);
+  font-size: 1.2vw;
   color: white;
 }
 .button:hover {
   color: #cfcfcf;
   cursor: pointer;
 }
+.home {
+  float: left;
+  height: 4vw;
+  width: 6vw;
+  line-height: 4.5vw;
+  border: 2px solid rgb(0, 0, 0);
+  font-size: 1.2vw;
+  color: white;
+}
+.home:hover {
+  color: #cfcfcf;
+  cursor: pointer;
+}
 .footer {
+  position: absolute;
+  bottom: 0px;
+  height: 2vw;
   width: 100%;
-  height: 28px;
-  line-height: 28px;
-  background-color: bisque;
   text-align: center;
+  background-color: rgb(0, 0, 0);
+  font-size: 1vw;
+  color: white;
 }
 .body {
   margin: 8px;
@@ -46,7 +64,8 @@ body {
 }
 .title {
 	text-align: center;
-	background-color: bisque;
+  background-color: black;
+  color: white;
   margin-bottom: 5px;
 }
 .select {
@@ -58,15 +77,16 @@ body {
 	height: 80px;
 }
 .capture {
-	position: absolute;
-  top: 545px;
+  position: absolute;
+  bottom: 0px;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 3vw;
+  width: 31.5vw;
   background-color: rgba(162, 187, 202, 0.5);
   text-align: center;
-  line-height: 50px;
-	font-size: 25px;
+  line-height: 3vw;
+  font-size: 2vw;
   display: none;
 }
 .capture:hover, .captureFile:hover{
@@ -74,8 +94,12 @@ body {
 	background-color: rgba(128, 154, 188, 0.5);
 }
 .camera {
-	width: 50px;
-	height: 50px;
+  width: 3vw;
+  height: 3vw;
+}
+.container {
+  position: relative;
+  display: inline-block;
 }
 .icon {
   width: 100%;
@@ -86,16 +110,16 @@ body {
 }
 #hat {
   position: absolute;
-  width: 240px;
-  height: 180px;
-  top: 115px;
-  left: 180px;
+  width: 24vw;
+  height: 18vw;
+  top: 11.5vw;
+  left: 18vw;
 }
 #cigarette {
   position: absolute;
-  width: 240px;
-  height: 180px;
-  top: 315px;
+  width: 6vw;
+  height: 4vw;
+  top: 0px;
   left: 100px;
 }
 #cadre {
@@ -111,13 +135,11 @@ body {
 }
 .captureFile {
   position: absolute;
-  left: 0;
-  right: 0;
   height: 50px;
   background-color: rgba(162, 187, 202, 0.5);
   text-align: center;
   line-height: 50px;
-  top: 1029px;
+  bottom: 0px;
   font-size: 25px;
   display: none;
 }
@@ -128,28 +150,12 @@ body {
   display: none;
 }
 #camera-not-available {
-  width: 100%;
+  width: 26vw;
+  height: 18vw;
   text-align: center;
-  height: 480px;
   background-color: rgba(0,0,0,0.1);
   color: white;
-  font-size: 40px;
-  line-height: 480px;
-  margin-bottom: 3px;
-}
-@media screen and (max-width: 900px) {
-  .main { width: 400px; }
-  .capture { top: 365px; } /* 180 */
-  #cadre { width: 400px; height: 300px; }
-  .body { width: 640px; }
-  #cigarette { top: 233px; width: 175px; height: 135px; left: 44px;}
-  #hat {top: 115px; width: 145px; height: 115px; left: 115px;}
-  #canvas { width: 400px;}
-  .captureFile {top: 668px;}
-  #camera-not-available {height: 300px; line-height: 160px}
-}
-@media screen and (max-width: 660px) {
-  .body {display: inline; width: 450px;}
-  .side {width: 100%; max-width: 400px; margin-right: auto; margin-left: auto;}
-  .main {margin-left: auto; margin-right: auto;}
+  font-size: 2vw;
+  line-height: 18vw;
+  margin-bottom: 1vw;
 }

@@ -1,1 +1,1 @@
-<div class="footer">2018 ©bsiguret</div>
+<div class="footer">bsiguret © 2018</div>

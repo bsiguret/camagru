@@ -30,39 +30,21 @@ try {
         echo "ERROR CREATING TABLE (Filter): ".$e->getMessage()."\nAborting process\n";
     }
 
-    // CREATE TABLE HASHTAG
-try {
-        // Connect to DATABASE previously created
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE TABLE `Hashtag`
-                (
-                `hashtag_id` INT NOT NULL AUTO_INCREMENT ,
-                `name`       VARCHAR(255) NOT NULL ,
-
-                PRIMARY KEY (`hashtag_id`)
-                ) ENGINE=INNODB";
-        $dbh->exec($sql);
-        echo "Table Hashtag created successfully</br>";
-    } catch (PDOException $e) {
-        echo "ERROR CREATING TABLE (hashtag): ".$e->getMessage()."\nAborting process\n";
-    }
-
     // CREATE TABLE IMAGE
 try {
         // Connect to DATABASE previously created
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "CREATE TABLE `Image`
-                (
+        (
                 `image_id`      INT NOT NULL AUTO_INCREMENT ,
+                `user_id`       INT NOT NULL ,
                 `path`          VARCHAR(255) NOT NULL ,
-                `description`   VARCHAR(150) NOT NULL ,
-                `creation_date` DATE NOT NULL ,
+                `creation_date` DATETIME DEFAULT CURRENT_TIMESTAMP ,
                 `nb_like`       INT NOT NULL ,
-
-                PRIMARY KEY (`image_id`)
-                ) ENGINE=INNODB";
+        
+        PRIMARY KEY (`image_id`)
+        ) ENGINE=INNODB;";
         $dbh->exec($sql);
         echo "Table Image created successfully</br>";
     } catch (PDOException $e) {
@@ -80,8 +62,8 @@ try {
                 `username`   VARCHAR(64) NOT NULL ,
                 `password`   VARCHAR(255) NOT NULL ,
                 `email`      VARCHAR(255) NOT NULL ,
-                `first_name` VARCHAR(255) NOT NULL ,
-                `last_name`  VARCHAR(255) NOT NULL ,
+                `fname` VARCHAR(255) NOT NULL ,
+                `lname`  VARCHAR(255) NOT NULL ,
                 `token`      VARCHAR(255) NOT NULL ,
                 `verified`   VARCHAR(1) NOT NULL DEFAULT 'N' ,
 
@@ -91,29 +73,6 @@ try {
         echo "Table User created successfully</br>";
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE (user): ".$e->getMessage()."\nAborting process\n";
-    }
-
-    // CREATE TABLE HASHTAG_IMAGE
-try {
-        // Connect to DATABASE previously created
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE TABLE `hashtag_image`
-                (
-                `hashtag_image_id` INT NOT NULL AUTO_INCREMENT ,
-                `image_id`         INT NOT NULL ,
-                `hashtag_id`       INT NOT NULL ,
-
-                PRIMARY KEY (`hashtag_image_id`, `image_id`, `hashtag_id`),
-                KEY `fkIdx_79` (`image_id`),
-                CONSTRAINT `FK_79` FOREIGN KEY `fkIdx_79` (`image_id`) REFERENCES `Image` (`image_id`),
-                KEY `fkIdx_83` (`hashtag_id`),
-                CONSTRAINT `FK_83` FOREIGN KEY `fkIdx_83` (`hashtag_id`) REFERENCES `hashtag` (`hashtag_id`)
-                ) ENGINE=INNODB";
-        $dbh->exec($sql);
-        echo "Table hashtag_image created successfully</br>";
-    } catch (PDOException $e) {
-        echo "ERROR CREATING TABLE (hashtag_image): ".$e->getMessage()."\nAborting process\n";
     }
 
     // CREATE TABLE PREFERENCE
