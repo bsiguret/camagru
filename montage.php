@@ -14,6 +14,7 @@ $montages = get_all_montage();
   </header>
   <body>
     <?php include('template/header.php') ?>
+    <?php include('template/footer.php') ?>
       <div class="body">
         <?php if(isset($_SESSION['id'])) { ?>
         <div class="main">
@@ -26,7 +27,7 @@ $montages = get_all_montage();
       			<input id="hat.png" type="radio" name="img" value="./img/hat.png" onclick="onCheckBoxChecked(this)">
     		  </div>
           <div class="container">
-            <video width="400vw" autoplay="true" id="webcam"></video>
+            <video autoplay="true" id="webcam"></video>
             <div id="camera-not-available">CAMERA NOT AVAILABLE</div>
             <img id="hat" style="display:none;" src="img/hat.png"></img>
             <img id="cigarette" style="display:none;" src="img/cigarette.png"></img>

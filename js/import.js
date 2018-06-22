@@ -21,9 +21,9 @@ fileInput.onchange = function (event) {
       var file = split[split.length - 1];
 
       if (file === "cadre.png") {
-        canvas.getContext("2d").drawImage(img, 0, 0, 1024, 768, 0, 0, 640, 480);
+        canvas.getContext("2d").drawImage(img, 0, 0, 1024, 768, 0, 0, 600, 480);
       } else if (file === "cigarette.png") {
-        canvas.getContext("2d").drawImage(img, 0, 0, 1024, 768, 100, 200, 240, 180);
+        canvas.getContext("2d").drawImage(img, 0, 0, 1024, 768, 100, 230, 240, 180);
       } else {
         canvas.getContext("2d").drawImage(img, 0, 0, 1024, 768, 180, 0, 240, 180);
       }
