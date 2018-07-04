@@ -25,26 +25,26 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   return;
 }
 
-if (strlen($username) > 50 || strlen($username) < 3) {
-  $_SESSION['error'] = "Username should be beetween 3 and 50 characters";
+if (strlen($username) < 4 || strlen($username) > 50) {
+  $_SESSION['error'] = "Username should be beetween 4 and 50 characters";
   header("Location: ../signup.php");
   return;
 }
 
-if (strlen($fname) < 1 || $fname > 255) {
-  $_SESSION['error'] = "First name should be beetween 1 and 255 characters";
+if (strlen($fname) < 1 || strlen($fname) > 40) {
+  $_SESSION['error'] = "First name should be beetween 1 and 40 characters";
   header("Location: ../signup.php");
   return;
 }
 
-if (strlen($lname) < 1 || $lname > 255) {
-  $_SESSION['error'] = "Last name should be beetween 1 and 255 characters";
+if (strlen($lname) < 1 || strlen($lname) > 40) {
+  $_SESSION['error'] = "Last name should be beetween 1 and 40 characters";
   header("Location: ../signup.php");
   return;
 }
 
-if (strlen($password) < 3) {
-  $_SESSION['error'] = "Password should be beetween 3 and 255 characters";
+if (strlen($password) < 6 || strlen($password) > 40) {
+  $_SESSION['error'] = "Password should be beetween 6 and 40 characters";
   header("Location: ../signup.php");
   return;
 }
