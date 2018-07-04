@@ -11,7 +11,7 @@ $more = false;
 $lastMontageId = 0;
 if ($montages != "" && array_key_exists("more", $montages)) {
   $more = true;
-  $lastMontageId = $montages[count($montages) - 2]['id'];
+  $lastMontageId = $montages[count($montages) - 2]['image_id'];
 }
 ?>
 <!DOCTYPE html>
@@ -30,10 +30,10 @@ if ($montages != "" && array_key_exists("more", $montages)) {
         if ($montages != null && $montages['error'] == null) {
           for ($i = 0; $montages[$i] && $i < $imagePerPages; $i++) {
             $class = "icon";
-            if ($montages[$i]['userid'] === $_SESSION['id']) {
+            if ($montages[$i]['user_id'] === $_SESSION['id']) {
               $class .= " removable";
             }
-            $comments = get_comments($montages[$i]['img']);
+            $comments = get_comments($montages[$i]['path']);
             $j = 0;
             $commentsHTML = "";
             while ($comments[$j] != null) {
@@ -41,13 +41,13 @@ if ($montages != "" && array_key_exists("more", $montages)) {
               $j++;
             }
             $gallery .= "
-            <div class=\"img\" data-img=\"" . $montages[$i]['img'] . "\">
-              <img class=\"" . $class . "\" src=\"montage/" . $montages[$i]['img'] . "\"></img>
+            <div class=\"img\" data-img=\"" . $montages[$i]['path'] . "\">
+              <img class=\"" . $class . "\" src=\"montage/" . $montages[$i]['path'] . "\"></img>
               <div id=\"buttons-like\">
-                <img class=\"button-like\" src=\"img/up.png\" data-image=\"". $montages[$i]['img'] ."\"></img>
-                <span class=\"nb-like\" data-src=\"". $montages[$i]['img'] ."\">" . get_nb_likes($montages[$i]['img']) . "</span>
-                <img class=\"button-dislike\" src=\"img/down.png\" data-image=\"". $montages[$i]['img'] ."\"></img>
-                <span class=\"nb-dislike\" data-src=\"". $montages[$i]['img'] ."\">" . get_nb_dislikes($montages[$i]['img']) . "</span>
+                <img class=\"button-like\" src=\"img/up.png\" data-image=\"". $montages[$i]['path'] ."\"></img>
+                <span class=\"nb-like\" data-src=\"". $montages[$i]['path'] ."\">" . get_nb_likes($montages[$i]['path']) . "</span>
+                <img class=\"button-dislike\" src=\"img/down.png\" data-image=\"". $montages[$i]['path'] ."\"></img>
+                <span class=\"nb-dislike\" data-src=\"". $montages[$i]['path'] ."\">" . get_nb_dislikes($montages[$i]['path']) . "</span>
               </div>"
               . $commentsHTML .
             "</div>";
@@ -74,6 +74,7 @@ if ($montages != "" && array_key_exists("more", $montages)) {
     <div id="load-more" onclick="loadMore(<?php echo($lastMontageId) ?>, <?php echo($imagePerPages) ?>)">... LOAD MORE</div>
     <?php } ?>
     <?php include('template/footer.php') ?>
+    <?php print_r($montages); ?>
   </body>
   <script type="text/javascript" src="js/modal.js"></script>
   <script type="text/javascript" src="js/like.js"></script>

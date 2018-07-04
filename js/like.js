@@ -18,7 +18,7 @@ for (var i=0; i < likes.length; i++) {
     };
     xhr.open("POST", "./controller/like.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("img=" + src + "&type=L");
+    xhr.send("path=" + src + "&liked=0");
   }
 }
 
@@ -36,7 +36,7 @@ for (var i=0; i < dislikes.length; i++) {
     };
     xhr.open("POST", "./controller/like.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("img=" + src + "&type=D");
+    xhr.send("path=" + src + "&liked=1");
   }
 }
 

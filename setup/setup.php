@@ -107,7 +107,7 @@ try {
                 `like_id`  INT NOT NULL AUTO_INCREMENT ,
                 `user_id`  INT NOT NULL ,
                 `image_id` INT NOT NULL ,
-                `liked`    BIT NOT NULL ,
+                `liked`    VARCHAR(1) NOT NULL ,
 
                 PRIMARY KEY (`like_id`, `user_id`, `image_id`),
                 KEY `fkIdx_38` (`user_id`),
