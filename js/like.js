@@ -18,7 +18,7 @@ for (var i=0; i < likes.length; i++) {
     };
     xhr.open("POST", "./controller/like.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("path=" + src + "&liked=0");
+    xhr.send("path=" + src + "&liked=1");
   }
 }
 
@@ -36,13 +36,14 @@ for (var i=0; i < dislikes.length; i++) {
     };
     xhr.open("POST", "./controller/like.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("path=" + src + "&liked=1");
+    xhr.send("path=" + src + "&liked=-1");
   }
 }
 
 function current_user_add_dislike(src) {
   clientDislikes[src] = true;
   var span = document.querySelectorAll("[data-src='" + src + "']")[1];
+  console.log(span);
   var prev = span.innerHTML;
   span.innerHTML = eval(prev * 1 + 1);
 
@@ -51,6 +52,7 @@ function current_user_add_dislike(src) {
   }
 
   var span = document.querySelectorAll("[data-src='" + src + "']")[0];
+  console.log(span);
   var prev = span.innerHTML;
   span.innerHTML = eval(prev * 1 - 1);
   clientLikes[src] = null;
@@ -59,6 +61,7 @@ function current_user_add_dislike(src) {
 function current_user_add_like(src) {
   clientLikes[src] = true;
   var span = document.querySelectorAll("[data-src='" + src + "']")[0];
+  console.log(span);
   var prev = span.innerHTML;
   span.innerHTML = eval(prev * 1 + 1);
 
@@ -67,6 +70,7 @@ function current_user_add_like(src) {
   }
 
   var span = document.querySelectorAll("[data-src='" + src + "']")[1];
+  console.log(span);
   var prev = span.innerHTML;
   span.innerHTML = eval(prev * 1 - 1);
   clientDislikes[src] = null;

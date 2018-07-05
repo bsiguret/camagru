@@ -74,7 +74,15 @@ if ($montages != "" && array_key_exists("more", $montages)) {
     <div id="load-more" onclick="loadMore(<?php echo($lastMontageId) ?>, <?php echo($imagePerPages) ?>)">... LOAD MORE</div>
     <?php } ?>
     <?php include('template/footer.php') ?>
-    <?php print_r($montages); ?>
+    <?php 
+      print_r($montages);
+      print_r($_SESSION);
+      $_SESSION['test'] = null;
+      $_SESSION['uid'] = null;
+      $_SESSION['path'] = null;
+      $_SESSION['liked'] = null;
+      $_SESSION['ret'] = null;
+    ?>
   </body>
   <script type="text/javascript" src="js/modal.js"></script>
   <script type="text/javascript" src="js/like.js"></script>
