@@ -13,8 +13,9 @@ for (var i=0; i < montage.length; i++) {
         parent.removeChild(event.srcElement || event.target);
       }
     };
-    xhr.open("POST", "./controller/removemontage.php", true);
+    xhr.open("POST", "../controller/removemontage.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("src=" + src);
+    console.log('uop');
   }
 }

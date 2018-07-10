@@ -30,14 +30,15 @@ if ($montages != "" && array_key_exists("more", $montages)) {
         if ($montages != null && $montages['error'] == null) {
           for ($i = 0; $montages[$i] && $i < $imagePerPages; $i++) {
             $class = "icon";
-            if ($montages[$i]['user_id'] === $_SESSION['id']) {
+            if ($montages[$i]['user_id'] == $_SESSION['id']) {             
               $class .= " removable";
             }
             $comments = get_comments($montages[$i]['path']);
+            $_SESSION['comment'] = $comments;
             $j = 0;
             $commentsHTML = "";
             while ($comments[$j] != null) {
-              $commentsHTML .= "<span class=\"comment\">" . htmlspecialchars($comments[$j]['username']) .": " . htmlspecialchars($comments[$j]['comment']) . "</span>";
+              $commentsHTML .= "<span class=\"comment\">" . htmlspecialchars($comments[$j]['username']) .": " . htmlspecialchars($comments[$j]['text']) . "</span>";
               $j++;
             }
             $gallery .= "
@@ -74,14 +75,9 @@ if ($montages != "" && array_key_exists("more", $montages)) {
     <div id="load-more" onclick="loadMore(<?php echo($lastMontageId) ?>, <?php echo($imagePerPages) ?>)">... LOAD MORE</div>
     <?php } ?>
     <?php include('template/footer.php') ?>
-    <?php 
-      print_r($montages);
-      print_r($_SESSION);
-      $_SESSION['test'] = null;
-      $_SESSION['uid'] = null;
-      $_SESSION['path'] = null;
-      $_SESSION['liked'] = null;
-      $_SESSION['ret'] = null;
+    <?php
+      print_r($montages[0]['user_id']);
+      print_r($_SESSION['id']);
     ?>
   </body>
   <script type="text/javascript" src="js/modal.js"></script>

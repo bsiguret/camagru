@@ -3,7 +3,7 @@ session_start();
 
 include_once("functions/montage.php");
 
-$montages = get_all_montage();
+$montages = get_all_montage($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -69,5 +69,5 @@ $montages = get_all_montage();
   <script type="text/javascript" src="js/webcam.js"></script>
   <script type="text/javascript" src="js/drop.js"></script>
   <script type="text/javascript" src="js/import.js"></script>
-  <?php } ?>
+  <?php print_r($_SESSION['rmontage']); } ?>
 </HTML>

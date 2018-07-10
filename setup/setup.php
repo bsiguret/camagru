@@ -41,7 +41,6 @@ try {
                 `user_id`       INT NOT NULL ,
                 `path`          VARCHAR(255) NOT NULL ,
                 `creation_date` DATETIME DEFAULT CURRENT_TIMESTAMP ,
-                `nb_like`       INT NOT NULL ,
         
         PRIMARY KEY (`image_id`)
         ) ENGINE=INNODB;";

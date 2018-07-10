@@ -6,7 +6,7 @@ function add_montage($user_id, $pathPath) {
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query= $dbh->prepare("INSERT INTO `image` (user_id, path, nb_like) VALUES (:user_id, :path, 0)");
+      $query= $dbh->prepare("INSERT INTO `image` (user_id, path) VALUES (:user_id, :path)");
       $query->execute(array(':user_id' => $user_id, ':path' => $pathPath));
       return (0);
     } catch (PDOException $e) {
@@ -14,14 +14,14 @@ function add_montage($user_id, $pathPath) {
     }
 }
 
-function get_all_montage() {
+function get_all_montage($uid) {
   include_once './setup/database.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query= $dbh->prepare("SELECT user_id, path FROM `image`");
-      $query->execute();
+      $query= $dbh->prepare("SELECT `user_id`, `path` FROM `image` WHERE `image`.user_id=:user_id");
+      $query->execute(array(':user_id' => $uid));
 
       $i = 0;
       $tab = null;
@@ -54,17 +54,17 @@ function remove_montage($uid, $path) {
       $query->closeCursor();
 
       $query= $dbh->prepare("DELETE FROM `like` WHERE image_id=:image_id");
-      $query->execute(array(':image_id' => $val['id']));
+      $query->execute(array(':image_id' => $val['image_id']));
       $query->closeCursor();
 
-      $query= $dbh->prepare("DELETE FROM comment WHERE image_id=:image_id");
-      $query->execute(array(':image_id' => $val['id']));
+      $query= $dbh->prepare("DELETE FROM `comment` WHERE image_id=:image_id");
+      $query->execute(array(':image_id' => $val['image_id']));
       $query->closeCursor();
 
-      $query= $dbh->prepare("DELETE FROM image WHERE path=:path AND user_id=:user_id");
+      $query= $dbh->prepare("DELETE FROM `image` WHERE `path`=:path AND user_id=:user_id");
       $query->execute(array(':path' => $path, ':user_id' => $uid));
       $query->closeCursor();
-      return (0);
+      return ($val);
     } catch (PDOException $e) {
       return ($e->getMessage());
     }
@@ -144,7 +144,7 @@ function comment($uid, $pathSrc, $comment) {
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query= $dbh->prepare("INSERT INTO comment(user_id, image_id, text) SELECT :user_id, comment_id, ':text' FROM image WHERE path=:path");
+      $query= $dbh->prepare("INSERT INTO comment(user_id, image_id, `text`) SELECT :user_id, image_id, :text FROM `image` WHERE `path`=:path");
       $query->execute(array(':user_id' => $uid, ':text' => $comment, ':path' => $pathSrc));
       return (0);
     } catch (PDOException $e) {
@@ -158,18 +158,16 @@ function get_comments($pathSrc) {
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query= $dbh->prepare("SELECT c.text, u.username FROM comment AS c, user AS u, `image` AS g WHERE g.path=':path' AND g.id=c.image_id AND c.user_id=u.user_id");
+      $query= $dbh->prepare("SELECT c.text, u.username FROM comment AS c, user AS u, `image` AS i WHERE i.path=:path AND i.image_id=c.image_id AND c.user_id=u.user_id");
       $query->execute(array(':path' => $pathSrc));
 
       $i = 0;
-      $tab = "";
+      $tab = null;
       while ($val = $query->fetch()) {
         $tab[$i] = $val;
         $i++;
       }
-      $tab[$i] = null;
       $query->closeCursor();
-
       return ($tab);
     } catch (PDOException $e) {
       $ret = "";

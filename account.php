@@ -3,7 +3,7 @@ session_start();
 
 include_once("functions/montage.php");
 
-$montages = get_all_montage();
+$montages = get_all_montage($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -22,6 +22,6 @@ $montages = get_all_montage();
       </div>
     <?php include('template/footer.php') ?>
   </body>
-  <?php if(isset($_SESSION['id'])) { ?>
+  <?php if(isset($_SESSION['id'])) {?>
   <?php } ?>
 </HTML>
