@@ -1,8 +1,7 @@
 <?php
 
 function add_montage($user_id, $pathPath) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,8 +14,7 @@ function add_montage($user_id, $pathPath) {
 }
 
 function get_all_montage($uid) {
-  include './setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -38,8 +36,7 @@ function get_all_montage($uid) {
 }
 
 function remove_montage($uid, $path) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -71,8 +68,7 @@ function remove_montage($uid, $path) {
 }
 
 function get_montages($start, $nb) {
-  include './setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       if ($start < 0) {
         $start = 0;
@@ -105,8 +101,7 @@ function get_montages($start, $nb) {
 }
 
 function get_montages2($start, $nb) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       if ($start < 0) {
         $start = 0;
@@ -139,8 +134,7 @@ function get_montages2($start, $nb) {
 }
 
 function comment($uid, $pathSrc, $comment) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -153,8 +147,7 @@ function comment($uid, $pathSrc, $comment) {
 }
 
 function get_comments($pathSrc) {
-  include './setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -177,8 +170,7 @@ function get_comments($pathSrc) {
 }
 
 function get_comments2($pathSrc) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -201,8 +193,7 @@ function get_comments2($pathSrc) {
 }
 
 function get_userinfo_from_montage($pathSrc) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include("../functions/montage.php");
-include("../functions/like.php");
+require $_SERVER["DOCUMENT_ROOT"]."/functions/montage.php";
+require $_SERVER["DOCUMENT_ROOT"]."/functions/like.php";
 
 $id = $_POST['id'];
 $nb = $_POST['nb'];

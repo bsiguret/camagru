@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-include_once '../functions/signup.php';
+require $_SERVER["DOCUMENT_ROOT"]."/functions/signup.php";
+require $_SERVER["DOCUMENT_ROOT"]."/functions/account.php";
 
 // retreive values
 $email = $_POST['email'];
@@ -21,6 +22,12 @@ if ($email == "" || $email == null || $username == "" || $username == null || $p
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   $_SESSION['error'] = "You need to enter a valid email";
+  header("Location: ../signup.php");
+  return;
+}
+
+if(email_taken($email)) {
+  $_SESSION['error'] = "Email already taken";
   header("Location: ../signup.php");
   return;
 }

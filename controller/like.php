@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("../functions/like.php");
+require $_SERVER["DOCUMENT_ROOT"]."/functions/like.php";
 
 $uid = $_SESSION['id'];
 $username = $_SESSION['username'];

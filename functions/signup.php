@@ -1,8 +1,8 @@
 <?php
 
 function signup($email, $username, $lname, $fname, $password, $host) {
-  include '../setup/database.php';
-  include '../functions/mail.php';
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+  require $_SERVER["DOCUMENT_ROOT"]."/functions/mail.php";
 
   $mail = strtolower($email);
 

@@ -1,8 +1,7 @@
 <?php
 
 function log_user($userEmail, $password) {
-  include '../setup/database.php';
-
+  require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,8 +18,7 @@ function log_user($userEmail, $password) {
       $query->closeCursor();
       return ($val);
     } catch (PDOException $e) {
-      $v['error'] = $e->getMessage();
-      return ($v);
+      return ($e->getMessage());
     }
 }
 

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include("../functions/montage.php");
-include("../functions/mail.php");
+require $_SERVER["DOCUMENT_ROOT"]."/functions/montage.php";
+require $_SERVER["DOCUMENT_ROOT"]."/functions/mail.php";
 
 $uid = $_SESSION['id'];
 $username = $_SESSION['username'];

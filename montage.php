@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("functions/montage.php");
+require $_SERVER["DOCUMENT_ROOT"]."/functions/montage.php";
 
 $montages = get_all_montage($_SESSION['id']);
 ?>

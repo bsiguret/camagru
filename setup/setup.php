@@ -1,5 +1,5 @@
 <?php
-include 'database.php';
+require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
 // CREATE DATABASE
 try {
         $dbh = new PDO($DB_DSN_LIGHT, $DB_USER, $DB_PASSWORD);

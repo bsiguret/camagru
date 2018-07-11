@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include '../functions/login.php';
-
+require $_SERVER["DOCUMENT_ROOT"]."/functions/login.php";
+echo "yolo";
 // retreive values
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -17,7 +17,5 @@ if (($val = log_user($email, $password)) == -1) {
   $_SESSION['fname'] = $val['fname'];
   $_SESSION['lname'] = $val['lname'];
 }
-
 header("Location: ../index.php");
-
 ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './functions/verify.php';
+require $_SERVER["DOCUMENT_ROOT"]."/functions/verify.php";
 ?>
 <!DOCTYPE html>
 <HTML>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '../functions/password.php';
+require $_SERVER["DOCUMENT_ROOT"]."/functions/password.php";
 
 // retreive values
 $email = $_POST['email'];

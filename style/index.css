@@ -32,6 +32,19 @@ label {
   padding: 0.4vw;
   box-shadow: 0 0.3vw 0.6vw 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
+#account {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 19.6vw;
+  height: 38.4vw;
+  margin: auto;
+  background-color: white;
+  padding: 0.4vw;
+  box-shadow: 0 0.3vw 0.6vw 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
 #box {
   align-content: center;
   font-size: 1vw;
@@ -72,6 +85,18 @@ input[type="submit"] {
   margin-left: auto;
   position: absolute;
   top: 28.8vw;
+  left: 0.3vw;
+}
+#account input[type="submit"] {
+  height: 3vw;
+  background-color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  position: absolute;
+  top: 31.8vw;
   left: 0.3vw;
 }
 input[type="submit"]:hover {
