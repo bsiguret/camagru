@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once './functions/verify.php';
+include './functions/verify.php';
 ?>
 <!DOCTYPE html>
 <HTML>

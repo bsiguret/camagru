@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include_once("functions/montage.php");
-include_once("functions/like.php");
+include("functions/montage.php");
+include("functions/like.php");
 
 $imagePerPages = 5;
 
@@ -76,8 +76,8 @@ if ($montages != "" && array_key_exists("more", $montages)) {
     <?php } ?>
     <?php include('template/footer.php') ?>
     <?php
-      print_r($montages[0]['user_id']);
-      print_r($_SESSION['id']);
+      print_r($_SESSION['getmontages']);
+      print_r($_SESSION['getcomment']);
     ?>
   </body>
   <script type="text/javascript" src="js/modal.js"></script>

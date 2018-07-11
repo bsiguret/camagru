@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once("../functions/like.php");
+include("../functions/like.php");
 
 $uid = $_SESSION['id'];
 $username = $_SESSION['username'];

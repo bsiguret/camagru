@@ -22,21 +22,21 @@ function loadMore(lastMontageId, imagePerPages) {
         var div = document.createElement("div");
 
         var commentsHTML = "";
-        for (var j = 0; responseJSON[i]['comments'] != null && responseJSON[i]['comments'][j] != null; j++) {
-          commentsHTML += "<span class=\"comment\">" + escapeHtml(responseJSON[i]['comments'][j]['username']) + ": " + escapeHtml(responseJSON[i]['comments'][j]['comment']) + "</span>";
+        for (var j = 0; responseJSON[i]['text'] != null && responseJSON[i]['text'][j] != null; j++) {
+          commentsHTML += "<span class=\"comment\">" + escapeHtml(responseJSON[i]['text'][j]['username']) + ": " + escapeHtml(responseJSON[i]['text'][j]['text']) + "</span>";
         }
 
         div.innerHTML =
-        "<img onclick=\"showModal2(\'" + responseJSON[i]['img'] + "\');\" class=\"icon removable\" src=\"montage/" + responseJSON[i]['img'] + "\"></img>" +
+        "<img onclick=\"showModal2(\'" + responseJSON[i]['path'] + "\');\" class=\"icon removable\" src=\"montage/" + responseJSON[i]['path'] + "\"></img>" +
         "<div id=\"buttons-like\">" +
-          "<img onclick=\"onLike(this);\" class=\"button-like\" src=\"img/up.png\" data-image=\""+ responseJSON[i]['img'] +"\"></img>" +
-          "<span class=\"nb-like\" data-src=\""+ responseJSON[i]['img'] +"\">" + responseJSON[i]['likes'] + "</span>" +
-          "<img onclick=\"onDislike(this);\" class=\"button-dislike\" src=\"img/down.png\" data-image=\""+ responseJSON[i]['img'] +"\"></img>" +
-          "<span class=\"nb-dislike\" data-src=\""+ responseJSON[i]['img'] +"\">" + responseJSON[i]['dislikes'] + "</span>" +
+          "<img onclick=\"onLike(this);\" class=\"button-like\" src=\"img/up.png\" data-image=\""+ responseJSON[i]['path'] +"\"></img>" +
+          "<span class=\"nb-like\" data-src=\""+ responseJSON[i]['path'] +"\">" + responseJSON[i]['likes'] + "</span>" +
+          "<img onclick=\"onDislike(this);\" class=\"button-dislike\" src=\"img/down.png\" data-image=\""+ responseJSON[i]['path'] +"\"></img>" +
+          "<span class=\"nb-dislike\" data-src=\""+ responseJSON[i]['path'] +"\">" + responseJSON[i]['dislikes'] + "</span>" +
           commentsHTML +
         "</div>";
         div.className = "img";
-        div.setAttribute("data-img", responseJSON[i]['img']);
+        div.setAttribute("data-img", responseJSON[i]['path']);
         views.appendChild(div);
       }
       if (typeof(responseJSON['more']) === 'undefined') {
@@ -77,7 +77,7 @@ function onLike(srcElement) {
   };
   xhr.open("POST", "./controller/like.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("img=" + src + "&type=L");
+  xhr.send("path=" + src + "&liked=1");
 }
 
 function onDislike(srcElement) {
@@ -93,5 +93,5 @@ function onDislike(srcElement) {
   };
   xhr.open("POST", "./controller/like.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("img=" + src + "&type=D");
+  xhr.send("path=" + src + "&liked=-1");
 }

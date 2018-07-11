@@ -1,8 +1,8 @@
 <?php
 
 function reset_password($userEmail) {
-  include_once '../setup/database.php';
-  include_once '../functions/mail.php';
+  include '../setup/database.php';
+  include '../functions/mail.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

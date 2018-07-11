@@ -1,7 +1,7 @@
 <?php
 
 function log_user($userEmail, $password) {
-  include_once '../setup/database.php';
+  include '../setup/database.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

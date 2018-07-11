@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once("functions/montage.php");
+include("functions/montage.php");
 
 $montages = get_all_montage($_SESSION['id']);
 ?>

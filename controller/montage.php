@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once '../functions/montage.php';
+include('../functions/montage.php');
 
 $monatageDir = "../montage/";
 

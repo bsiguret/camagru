@@ -1,8 +1,8 @@
 <?php
 
 function signup($email, $username, $lname, $fname, $password, $host) {
-  include_once '../setup/database.php';
-  include_once '../functions/mail.php';
+  include '../setup/database.php';
+  include '../functions/mail.php';
 
   $mail = strtolower($email);
 

@@ -1,7 +1,7 @@
 <?php
 
 function add_montage($user_id, $pathPath) {
-  include_once '../setup/database.php';
+  include '../setup/database.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -15,7 +15,7 @@ function add_montage($user_id, $pathPath) {
 }
 
 function get_all_montage($uid) {
-  include_once './setup/database.php';
+  include './setup/database.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -38,7 +38,7 @@ function get_all_montage($uid) {
 }
 
 function remove_montage($uid, $path) {
-  include_once '../setup/database.php';
+  include '../setup/database.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -71,7 +71,7 @@ function remove_montage($uid, $path) {
 }
 
 function get_montages($start, $nb) {
-  include_once './setup/database.php';
+  include './setup/database.php';
 
   try {
       if ($start < 0) {
@@ -105,7 +105,7 @@ function get_montages($start, $nb) {
 }
 
 function get_montages2($start, $nb) {
-  include_once '../setup/database.php';
+  include '../setup/database.php';
 
   try {
       if ($start < 0) {
@@ -139,7 +139,7 @@ function get_montages2($start, $nb) {
 }
 
 function comment($uid, $pathSrc, $comment) {
-  include_once '../setup/database.php';
+  include '../setup/database.php';
 
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -182,18 +182,16 @@ function get_comments2($pathSrc) {
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query= $dbh->prepare("SELECT c.text, u.username FROM comment AS c, user AS u, `image` AS g WHERE g.path=':path' AND g.id=c.image_id AND c.user_id=u.user_id");
+      $query= $dbh->prepare("SELECT c.text, u.username FROM comment AS c, user AS u, `image` AS i WHERE i.path=:path AND i.image_id=c.image_id AND c.user_id=u.user_id");
       $query->execute(array(':path' => $pathSrc));
 
       $i = 0;
-      $tab = "";
+      $tab = null;
       while ($val = $query->fetch()) {
         $tab[$i] = $val;
         $i++;
       }
-      $tab[$i] = null;
       $query->closeCursor();
-
       return ($tab);
     } catch (PDOException $e) {
       $ret = "";

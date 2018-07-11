@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include_once("../functions/montage.php");
-include_once("../functions/mail.php");
+include("../functions/montage.php");
+include("../functions/mail.php");
 
 $uid = $_SESSION['id'];
 $username = $_SESSION['username'];

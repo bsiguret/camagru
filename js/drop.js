@@ -12,10 +12,10 @@ for (var i=0; i < montage.length; i++) {
       if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0) && xhr.responseText == "OK") {
         parent.removeChild(event.srcElement || event.target);
       }
+    location.reload();
     };
     xhr.open("POST", "../controller/removemontage.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("src=" + src);
-    console.log('uop');
   }
 }
