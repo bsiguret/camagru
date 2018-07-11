@@ -64,7 +64,7 @@ function remove_montage($uid, $path) {
       $query= $dbh->prepare("DELETE FROM `image` WHERE `path`=:path AND user_id=:user_id");
       $query->execute(array(':path' => $path, ':user_id' => $uid));
       $query->closeCursor();
-      return ($val);
+      return (0);
     } catch (PDOException $e) {
       return ($e->getMessage());
     }
