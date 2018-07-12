@@ -4,7 +4,7 @@ function get_account($uid) {
 	try {
 		$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$query= $dbh->prepare("SELECT `username`, `email`, `fname`, `lname` FROM user WHERE user_id=:user_id");
+		$query= $dbh->prepare("SELECT `username`, `email`, `fname`, `lname`, `notif` FROM user WHERE user_id=:user_id");
 		$query->execute(array(':user_id' => $uid));
 		$val = $query->fetch();
 		$query->closeCursor();
@@ -57,10 +57,10 @@ function update_account($uinfo)
 	try {
 		$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    	$query= $dbh->prepare("UPDATE user SET `email`=:email, `password`=:password, `username`=:username, `lname`=:lname, `fname`=:fname
-		WHERE `user_id`=:user_id");
+    	$query= $dbh->prepare("UPDATE user SET `email`=:email, `password`=:password, `username`=:username, `lname`=:lname, `fname`=:fname,
+		`notif`=:notif WHERE `user_id`=:user_id");
 		$query->execute(array(':user_id' => $uinfo['user_id'], ':email' => $uinfo['email'], ':password' => $uinfo['password'],
-		':username' => $uinfo['username'], ':lname' => $uinfo['lname'], ':fname' => $uinfo['fname']));
+		':username' => $uinfo['username'], ':lname' => $uinfo['lname'], ':fname' => $uinfo['fname'], ':notif' => $uinfo['notif']));
 
 		$val = $query->fetch();
 		$query->closeCursor();

@@ -28,10 +28,13 @@ $account = get_account($_SESSION['id']);
 					<input id="fname" name="fname" placeholder=<?php print_r(htmlspecialchars($account['fname'])) ?>>
 					<label>Last Name: </label>
 					<input id="lname" name="lname" placeholder=<?php print_r(htmlspecialchars($account['lname'])) ?>>
+					<label> Notification comment: </label>
+					<input type='hidden' name='notif' value="N" checked>
+					<input type="checkbox" name="notif" value="Y" <?php if($account['notif'] == "Y") echo "checked" ?>>
 					<label>Password: </label>
-					<input id="password" name="password" placeholder="password" type="password">
+					<input id="password" name="password" placeholder="Current password" type="password">
 					<label>New password: </label>
-					<input id="npassword" name="npassword" placeholder="new password" type="password">
+					<input id="npassword" name="npassword" placeholder="New password" type="password">
 					<input name="submit" type="submit" value="MODIFY">
 				<?php } else { ?>
 					<span> You need to be connected to access your account. </span>
@@ -45,9 +48,7 @@ $account = get_account($_SESSION['id']);
 			if ($_SESSION['error']) {
 				echo $_SESSION['error'];
 			}
-			print_r($_SESSION['temail']);
 			$_SESSION['error'] = null;
-			$_SESSION['temail'] = null;
 		?>
 	</body>
 </HTML>

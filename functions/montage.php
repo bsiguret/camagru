@@ -197,7 +197,7 @@ function get_userinfo_from_montage($pathSrc) {
   try {
       $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query= $dbh->prepare("SELECT email, username FROM user, `image` WHERE `image`.`path`=:path AND `user`.`user_id`=`image`.`user_id`");
+      $query= $dbh->prepare("SELECT email, username, notif FROM user, `image` WHERE `image`.`path`=:path AND `user`.`user_id`=`image`.`user_id`");
       $query->execute(array(':path' => $pathSrc));
 
       $val = $query->fetch();

@@ -39,7 +39,7 @@ label {
   left: 0;
   right: 0;
   width: 19.6vw;
-  height: 38.4vw;
+  height: 42.4vw;
   margin: auto;
   background-color: white;
   padding: 0.4vw;
@@ -48,6 +48,7 @@ label {
 #box {
   align-content: center;
   font-size: 1vw;
+  position: relative;
 }
 .title {
   text-align: center;
@@ -96,7 +97,7 @@ input[type="submit"] {
   margin-right: auto;
   margin-left: auto;
   position: absolute;
-  top: 31.8vw;
+  top: 35.8vw;
   left: 0.3vw;
 }
 input[type="submit"]:hover {

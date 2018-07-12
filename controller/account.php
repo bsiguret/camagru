@@ -10,6 +10,7 @@ $password = $_POST['password'];
 $npassword = $_POST['npassword'];
 $lname = $_POST['lname'];
 $fname = $_POST['fname'];
+$notif = $_POST['notif'];
 
 $_SESSION['error'] = null;
 $userinfo = get_userinfo($_SESSION['id']);
@@ -115,6 +116,11 @@ else if ($npassword != null || $npassword != "")
 		return;
 	}
 	$userinfo['password'] = hash("whirlpool", $npassword);
+}
+
+// CHANGE NOTIF PREFERENCE
+if ($notif != null || $notif != "") {
+	$userinfo['notif'] = $notif;
 }
 
 update_account($userinfo);
