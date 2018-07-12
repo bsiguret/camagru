@@ -10,19 +10,16 @@ $img = $_POST['img'];
 $comment = $_POST['comment'];
 
 if ($uid == null || $comment == null || $comment == "" || $img == null || $img == "" || strlen($comment) > 255) {
-  return;
+	return;
 }
 
 $val = comment($uid, $img, $comment);
 $userInfos = get_userinfo_from_montage($img);
-
-$url = $_SERVER['HTTP_HOST'] . str_replace("/controller/comment.php", "", $_SERVER['REQUEST_URI']);
-
+$url = $_SERVER['HTTP_HOST'];
 if ($val == 0) {
-  if ($userInfos['username']) {
-    send_comment_mail($userInfos['mail'], $userInfos['username'], $comment, $username, $img, $url);
-  }
-  echo htmlspecialchars($username);
+	if ($userInfos['username']) {
+		send_comment_mail($userInfos['email'], $userInfos['username'], $comment, $username, $img, $url);
+	}
+	echo htmlspecialchars($username);
 }
-
 ?>

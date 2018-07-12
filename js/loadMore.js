@@ -17,7 +17,11 @@ function loadMore(lastMontageId, imagePerPages) {
         return;
       }
       var responseJSON = JSON.parse(xhr.responseText);
-      last = responseJSON[responseJSON.length - 1]['id'];
+      var len = 0;
+      while (responseJSON[len]) {
+        len++;
+      }
+      last = responseJSON[len - 1]['image_id'];
       for (var i = 0; responseJSON[i]; i++) {
         var div = document.createElement("div");
 

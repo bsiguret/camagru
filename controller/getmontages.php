@@ -11,11 +11,9 @@ if ($id == null || $id == "" || $nb == null || $nb == "") {
   echo "KO";
   return;
 }
-
 $montages = [];
-
 $montages = get_montages2($id, $nb);
-for ($i = 0; $i < count($montages); $i++) {
+for ($i = 0; $i < count($montages) - 1; $i++) {
   $montages[$i]['dislikes'] = get_nb_dislikes2($montages[$i]['path']);
   $montages[$i]['likes'] = get_nb_likes2($montages[$i]['path']);
   $comments = get_comments2($montages[$i]['path']);
@@ -25,10 +23,19 @@ for ($i = 0; $i < count($montages); $i++) {
     $montages[$i]['text'] = null;
   }
 }
+if (count($montages) == 1) {
+  $montages[0]['dislikes'] = get_nb_dislikes2($montages[0]['path']);
+  $montages[0]['likes'] = get_nb_likes2($montages[0]['path']);
+  $comments = get_comments2($montages[0]['path']);
+  if ($comments[0] != null) {
+    $montages[0]['text'] = $comments;
+  } else {
+    $montages[0]['text'] = null;
+  }
+}
 if (count($montages) <= 0) {
   echo "KO";
   return;
 }
 print_r(json_encode($montages));
-
 ?>

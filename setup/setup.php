@@ -12,24 +12,6 @@ try {
         exit(-1);
     }
 
-    // CREATE TABLE FILTER
-try {
-        // Connect to DATABASE previously created
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE TABLE `Filter`
-                (
-                `filter_id` INT NOT NULL AUTO_INCREMENT ,
-                `path`      VARCHAR(255) NOT NULL ,
-
-                PRIMARY KEY (`filter_id`)
-                ) ENGINE=INNODB";
-        $dbh->exec($sql);
-        echo "Table Filter created successfully</br>";
-    } catch (PDOException $e) {
-        echo "ERROR CREATING TABLE (Filter): ".$e->getMessage()."\nAborting process\n";
-    }
-
     // CREATE TABLE IMAGE
 try {
         // Connect to DATABASE previously created
@@ -63,6 +45,7 @@ try {
                 `email`      VARCHAR(255) NOT NULL ,
                 `fname`      VARCHAR(255) NOT NULL ,
                 `lname`		 VARCHAR(255) NOT NULL ,
+                `notif`      VARCHAR(1) NOT NULL DEFAULT 'Y' ,
                 `token`      VARCHAR(255) NOT NULL ,
                 `verified`   VARCHAR(1) NOT NULL DEFAULT 'N' ,
 
@@ -73,28 +56,6 @@ try {
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE (user): ".$e->getMessage()."\nAborting process\n";
     }
-
-    // CREATE TABLE PREFERENCE
-// try {
-//         // Connect to DATABASE previously created
-//         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-//         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//         $dbh->engine = 'InnoDB';
-//         $sql = "CREATE TABLE `Preference`
-//                 (
-//                 `id_preference` INT NOT NULL AUTO_INCREMENT ,
-//                 `user_id`       INT NOT NULL ,
-//                 `email_notif`   BIT NOT NULL ,
-
-//                 PRIMARY KEY (`id_preference`, `user_id`),
-//                 KEY `fkIdx_57` (`user_id`),
-//                 CONSTRAINT `FK_57` FOREIGN KEY `fkIdx_57` (`user_id`) REFERENCES `User` (`user_id`)
-//                 ) ENGINE=INNODB";
-//         $dbh->exec($sql);
-//         echo "Table Preference created successfully</br>";
-//     } catch (PDOException $e) {
-//         echo "ERROR CREATING TABLE (preference): ".$e->getMessage()."\nAborting process\n";
-//     }
 
     // CREATE TABLE LIKE
 try {

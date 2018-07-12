@@ -3,7 +3,6 @@ session_start();
 
 require $_SERVER["DOCUMENT_ROOT"]."/functions/montage.php";
 require $_SERVER["DOCUMENT_ROOT"]."/functions/like.php";
-echo $_SERVER["DOCUMENT_ROOT"];
 $imagePerPages = 5;
 
 $montages = get_montages(0, $imagePerPages);

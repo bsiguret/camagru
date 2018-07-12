@@ -59,9 +59,9 @@ function send_comment_mail($toAddr, $toUsername, $comment, $fromUsername, $img, 
     </head>
     <body>
       Hello ' . htmlspecialchars($toUsername) . ' </br>
-      A user just commented one of your montage</br>
-      <img src="http://' . $url . '/montage/' . $img . '" style="width: 388px;height: 291px;display: block;margin: 20px;"></img>
-      <span>' . htmlspecialchars($fromUsername) . ': ' . htmlspecialchars($comment) . '</span>
+      A user just commented one of your montage:</br>
+      http://' . $url . '/montage/' . $img . '
+      </br><span>' . htmlspecialchars($fromUsername) . ': ' . htmlspecialchars($comment) . '</span>
     </body>
   </html>
   ';
