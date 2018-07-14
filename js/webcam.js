@@ -2,7 +2,7 @@ var video = document.querySelector("#webcam");
 var canvas = document.getElementById("canvas");
 var button = document.getElementById("pickImage");
 var miniatures = document.getElementById("miniatures");
-var inputFile = document.getElementById("take-picture");
+var inputFile = document.getElementById("takePicture");
 var pickFile = document.getElementById("pickFile");
 var notAvailable = document.getElementById("cameranotavailable");
 
@@ -44,7 +44,11 @@ navigator.mediaDevices.getUserMedia(constraints)
 .catch(videoError);
 
 function handleVideo(stream) {
-		video.src = window.URL.createObjectURL(stream);
+		try {
+			video.srcObject = stream;
+		} catch (error) {
+			video.src = window.URL.createObjectURL(stream);
+		}
 		cameraAvailable = true;
 		video.style.display = "block";
 		notAvailable.style.display = "none";
@@ -123,7 +127,6 @@ function onCheckBoxChecked(checkbox) {
 				hat.style.display = "block";
 			}
 	}
-	inputFile.style.display = "block";
 	if (inputFile.files.length) {
 		var image = new Image();
 		var img = new Image();
