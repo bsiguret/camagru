@@ -3,6 +3,17 @@ body {
 	background-color: white;
 	font-family: monospace;
 }
+label {
+	background-color: black;
+	color: white;
+	padding: 0.2vw;
+	cursor: pointer;
+	font-size: 1.1vw;
+}
+label:hover {
+	background-color: grey;
+	color: black;
+}
 #header {
 	width: 100%;
 	height: 5vw;
@@ -110,17 +121,17 @@ body {
 }
 #hat {
 	position: absolute;
-	width: 15vw;
-	height: 12vw;
+	width: 14vw;
+	height: 11vw;
 	top: 0vw;
-	left: 17vw;
+	left: 12vw;
 }
 #cigarette {
 	position: absolute;
-	width: 10vw;
+	width: 12vw;
 	height: 8vw;
-	top: 21vw;
-	left: 15vw;
+	top: 13vw;
+	left: 9vw;
 }
 #cadre {
 	position: absolute;
@@ -151,10 +162,11 @@ body {
 }
 #webcam {
 	display: relative;
-	width: 50vw;
+	width: 40vw;
 }
 #canvas {
-	width: 50vw;
+	width: 40vw;
+	height: 30vw;
 }
 #cameranotavailable {
 	width: 50vw;
