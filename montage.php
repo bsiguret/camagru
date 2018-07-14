@@ -25,6 +25,7 @@ $montages = get_all_montage($_SESSION['id']);
 					<input id="cigarette.png" type="radio" name="img" value="./img/cigarette.png" onclick="onCheckBoxChecked(this)">
 					<img class="thumbnail" src="img/hat.png"></img>
 					<input id="hat.png" type="radio" name="img" value="./img/hat.png" onclick="onCheckBoxChecked(this)">
+					<label for="take-picture">Upload</label>
 				</div>
 				<div class="container">
 					<video autoplay="true" id="webcam"></video>
