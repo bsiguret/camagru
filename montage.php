@@ -29,7 +29,7 @@ $montages = get_all_montage($_SESSION['id']);
 				</div>
 				<div class="container">
 					<video autoplay="true" id="webcam"></video>
-					<div id="camera-not-available">CAMERA NOT AVAILABLE</div>
+					<div id="cameranotavailable">CAMERA NOT AVAILABLE</div>
 					<img id="hat" style="display:none;" src="img/hat.png"></img>
 					<img id="cigarette" style="display:none;" src="img/cigarette.png"></img>
 					<img id="cadre" style="display:none;" src="img/cadre.png"></img>

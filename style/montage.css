@@ -156,13 +156,13 @@ body {
 #canvas {
 	width: 50vw;
 }
-#camera-not-available {
-	width: 26vw;
-	height: 18vw;
+#cameranotavailable {
+	width: 50vw;
+	height: 30vw;
 	text-align: center;
 	background-color: rgba(0,0,0,0.1);
 	color: white;
 	font-size: 2vw;
-	line-height: 18vw;
+	line-height: 30vw;
 	margin-bottom: 1vw;
 }

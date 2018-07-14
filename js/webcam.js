@@ -4,7 +4,7 @@ var button = document.getElementById("pickImage");
 var miniatures = document.getElementById("miniatures");
 var inputFile = document.getElementById("take-picture");
 var pickFile = document.getElementById("pickFile");
-var notAvailable = document.getElementById("camera-not-available");
+var notAvailable = document.getElementById("cameranotavailable");
 
 var cadre = document.getElementById("cadre");
 var cigarette = document.getElementById("cigarette");

@@ -10,6 +10,7 @@ fileInput.onchange = function (event) {
 
 	canvas.style.display = "block";
 	webcam.style.display = "none";
+	cameranotavailable.style.display = "none";
 	cadre.style.display = "none";
 	cigarette.style.display = "none";
 	hat.style.display = "none";

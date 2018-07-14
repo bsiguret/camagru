@@ -1,1 +1,1 @@
-<div class="footer">bsiguret © 2018</div>
+<div class="footer">Camagru - bsiguret © 2018</div>
