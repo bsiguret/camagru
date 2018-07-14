@@ -45,6 +45,30 @@ if (count($montages) == 2) {
   }
  }
 }
+if (count($montages) == 3) {
+  for ($i=0; $i < 3; $i++) { 
+   $montages[$i]['dislikes'] = get_nb_dislikes2($montages[$i]['path']);
+   $montages[$i]['likes'] = get_nb_likes2($montages[$i]['path']);
+   $comments = get_comments2($montages[$i]['path']);
+   if ($comments[$i] != null) {
+     $montages[$i]['text'] = $comments;
+   } else {
+     $montages[$i]['text'] = null;
+   }
+  }
+ }
+ if (count($montages) == 4) {
+  for ($i=0; $i < 4; $i++) { 
+   $montages[$i]['dislikes'] = get_nb_dislikes2($montages[$i]['path']);
+   $montages[$i]['likes'] = get_nb_likes2($montages[$i]['path']);
+   $comments = get_comments2($montages[$i]['path']);
+   if ($comments[$i] != null) {
+     $montages[$i]['text'] = $comments;
+   } else {
+     $montages[$i]['text'] = null;
+   }
+  }
+ }
 if (count($montages) <= 0) {
   echo "KO";
   return;
