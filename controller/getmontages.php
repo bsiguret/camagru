@@ -33,6 +33,18 @@ if (count($montages) == 1) {
     $montages[0]['text'] = null;
   }
 }
+if (count($montages) == 2) {
+ for ($i=0; $i < 2; $i++) { 
+  $montages[$i]['dislikes'] = get_nb_dislikes2($montages[$i]['path']);
+  $montages[$i]['likes'] = get_nb_likes2($montages[$i]['path']);
+  $comments = get_comments2($montages[$i]['path']);
+  if ($comments[$i] != null) {
+    $montages[$i]['text'] = $comments;
+  } else {
+    $montages[$i]['text'] = null;
+  }
+ }
+}
 if (count($montages) <= 0) {
   echo "KO";
   return;
