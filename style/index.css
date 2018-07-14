@@ -34,12 +34,12 @@ label {
 }
 #account {
 	position: fixed;
-	top: 0;
+	top: 50px;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	width: 19.6vw;
-	height: 39.4vw;
+	height: 40.4vw;
 	margin: auto;
 	background-color: white;
 	padding: 0.4vw;
@@ -97,7 +97,7 @@ input[type="submit"] {
 	margin-right: auto;
 	margin-left: auto;
 	position: absolute;
-	top: 33.8vw;
+	top: 34.8vw;
 	left: 0.3vw;
 }
 input[type="submit"]:hover {
