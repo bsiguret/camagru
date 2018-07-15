@@ -6,9 +6,9 @@ var imgModal = document.getElementById('img-modal');
 
 var last = null;
 
-function loadMore(lastMontageId, imagePerPages) {
+function loadMore(lastMontage, imagePerPages) {
 	if (last != null) {
-		lastMontageId = last;
+		lastMontage = last;
 	}
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
@@ -50,7 +50,7 @@ function loadMore(lastMontageId, imagePerPages) {
 	};
 	xhr.open("POST", "./controller/getmontages.php", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xhr.send("id=" + lastMontageId + "&nb=" + imagePerPages);
+	xhr.send("id=" + lastMontage + "&nb=" + imagePerPages);
 }
 
 function escapeHtml(unsafe) {

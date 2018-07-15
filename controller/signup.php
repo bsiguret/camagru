@@ -10,6 +10,9 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $lname = $_POST['lname'];
 $fname = $_POST['fname'];
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$number    = preg_match('@[0-9]@', $password);
 
 $_SESSION['error'] = null;
 
@@ -50,8 +53,8 @@ if (strlen($lname) < 1 || strlen($lname) > 40) {
   return;
 }
 
-if (strlen($password) < 6 || strlen($password) > 40) {
-  $_SESSION['error'] = "Password should be beetween 6 and 40 characters";
+if (!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password) > 40) {
+  $_SESSION['error'] = "Password should be beetween 8 and 40 characters and <br> contain at least 1 number, 1 uppercase and 1 lowercase.";
   header("Location: ../signup.php");
   return;
 }
@@ -59,6 +62,5 @@ if (strlen($password) < 6 || strlen($password) > 40) {
 $host = $_SERVER['HTTP_HOST'] . str_replace("/controller/signup.php", "", $_SERVER['REQUEST_URI']);
 
 signup($email, $username, $lname, $fname, $password, $host);
-
 header("Location: ../signup.php");
 ?>

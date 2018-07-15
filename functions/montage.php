@@ -75,7 +75,7 @@ function get_montages($start, $nb) {
 			}
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$query= $dbh->prepare("SELECT user_id, path, image_id FROM image WHERE image_id > :image_id ORDER BY image_id ASC LIMIT :lim");
+			$query= $dbh->prepare("SELECT user_id, path, image_id FROM image WHERE image_id > :image_id ORDER BY creation_date ASC LIMIT :lim");
 			$query->bindValue(':lim', $nb + 1, PDO::PARAM_INT);
 			$query->bindValue(':image_id', $start, PDO::PARAM_INT);
 			$query->execute();
@@ -108,7 +108,7 @@ function get_montages2($start, $nb) {
 			}
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$query= $dbh->prepare("SELECT user_id, path, image_id FROM image WHERE image_id > :image_id ORDER BY image_id ASC LIMIT :lim");
+			$query= $dbh->prepare("SELECT user_id, path, image_id FROM image WHERE image_id > :image_id ORDER BY creation_date ASC LIMIT :lim");
 			$query->bindValue(':lim', $nb + 1, PDO::PARAM_INT);
 			$query->bindValue(':image_id', $start, PDO::PARAM_INT);
 			$query->execute();

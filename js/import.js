@@ -33,7 +33,9 @@ fileInput.onchange = function (event) {
 				}
 			}
 			pickFile.onclick = function () {
-				sendMontage(data64Img, file);
+				if (cadre.style.display == "block" || cigarette.style.display == "block" || hat.style.display == "block") {
+					sendMontage(data64Img, file);
+				}
 			}
 	}, false);
 

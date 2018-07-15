@@ -11,6 +11,9 @@ $npassword = $_POST['npassword'];
 $lname = $_POST['lname'];
 $fname = $_POST['fname'];
 $notif = $_POST['notif'];
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$number    = preg_match('@[0-9]@', $password);
 
 $_SESSION['error'] = null;
 $userinfo = get_userinfo($_SESSION['id']);
@@ -101,9 +104,9 @@ else if ($lname != null || $lname != "")
 }
 
 // CHANGE PASSWORD
-if (($npassword != null || $npassword != "") && (strlen($npassword) < 6 || strlen($npassword) > 40))
+if (($npassword != null || $npassword != "") && (!$uppercase || !$lowercase || !$number || strlen($npassword) < 6 || strlen($npassword) > 40))
 {
-	$_SESSION['error'] = "Password should be beetween 6 and 40 characters";
+  $_SESSION['error'] = "Password should be beetween 8 and 40 characters and <br> contain at least 1 number, 1 uppercase and 1 lowercase.";
 	header("Location: ../account.php");
 	return;
 }
