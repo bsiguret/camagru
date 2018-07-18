@@ -1,7 +1,7 @@
 <?php
 
 function reset_password($userEmail) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	require $_SERVER["DOCUMENT_ROOT"]."/functions/mail.php";
   try {
 	  $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

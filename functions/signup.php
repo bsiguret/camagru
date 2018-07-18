@@ -1,7 +1,7 @@
 <?php
 
 function signup($email, $username, $lname, $fname, $password, $host) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	require $_SERVER["DOCUMENT_ROOT"]."/functions/mail.php";
 
 	$mail = strtolower($email);

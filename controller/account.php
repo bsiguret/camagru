@@ -11,9 +11,9 @@ $npassword = $_POST['npassword'];
 $lname = $_POST['lname'];
 $fname = $_POST['fname'];
 $notif = $_POST['notif'];
-$uppercase = preg_match('@[A-Z]@', $password);
-$lowercase = preg_match('@[a-z]@', $password);
-$number    = preg_match('@[0-9]@', $password);
+$uppercase = preg_match('@[A-Z]@', $npassword);
+$lowercase = preg_match('@[a-z]@', $npassword);
+$number    = preg_match('@[0-9]@', $npassword);
 
 $_SESSION['error'] = null;
 $userinfo = get_userinfo($_SESSION['id']);
@@ -127,6 +127,6 @@ if ($notif != null || $notif != "") {
 }
 
 update_account($userinfo);
-$_SESSION['error'] = "Your account has been update";
+$_SESSION['error'] = "Your account has been updated";
 header("Location: ../account.php");
 ?>

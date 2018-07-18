@@ -1,7 +1,7 @@
 <?php
 
 function add_like($uid, $path, $liked) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -14,7 +14,7 @@ function add_like($uid, $path, $liked) {
 }
 
 function update_like($uid, $path, $liked) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,7 +27,7 @@ function update_like($uid, $path, $liked) {
 }
 
 function get_like($uid, $path) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -46,7 +46,7 @@ function get_like($uid, $path) {
 }
 
 function get_nb_likes($path) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -65,7 +65,7 @@ function get_nb_likes($path) {
 }
 
 function get_nb_likes2($path) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -84,7 +84,7 @@ function get_nb_likes2($path) {
 }
 
 function get_nb_dislikes($path) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -103,7 +103,7 @@ function get_nb_dislikes($path) {
 }
 
 function get_nb_dislikes2($path) {
-	require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+	require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 	try {
 			$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

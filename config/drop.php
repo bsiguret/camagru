@@ -1,5 +1,5 @@
 <?php
-require $_SERVER["DOCUMENT_ROOT"]."/setup/database.php";
+require $_SERVER["DOCUMENT_ROOT"]."/config/database.php";
 
 // DROP DATABASE
 try {

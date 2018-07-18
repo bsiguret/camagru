@@ -17,7 +17,7 @@ $val = comment($uid, $img, $comment);
 $userInfos = get_userinfo_from_montage($img);
 $url = $_SERVER['HTTP_HOST'];
 if ($val == 0) {
-	if ($userInfos['username'] && $userInfos['notif'] == 'Y') {
+	if ($userInfos['username'] && $userInfos['username'] != $username && $userInfos['notif'] == 'Y') {
 		send_comment_mail($userInfos['email'], $userInfos['username'], $comment, $username, $img, $url);
 	}
 	echo htmlspecialchars($username);

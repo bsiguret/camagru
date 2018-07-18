@@ -8,4 +8,4 @@ It's a PHP project and the usage of framework was forbidden for this project, we
 
 ## Database
 
-Execute setup/setup.php to create the database (config the setup/database.php first).
+Execute config/setup.php to create the database (config the config/database.php first).
